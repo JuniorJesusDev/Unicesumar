@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios</title>
+    <link rel="stylesheet" th:href="@{/css/paginas.css}" />
+</head>
+<body>
+<div class="top-banner"></div>
+<div class="sidebar" th:replace="~{fragments/menu :: menuFragment}"></div>
+<div class="wrapper-container">
+    <div class="main-content">
+        <h1>Relatórios</h1>
+
+        <!-- Formulário para filtrar por status e por data -->
+        <form class="my-form" th:action="@{/relatorios}" method="get">
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select name="status" id="status">
+                    <option value="">-- Selecione o status --</option>
+                    <option value="Aberto">Aberto</option>
+                    <option value="Em Progresso">Em Progresso</option>
+                    <option value="Concluído">Concluído</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data">
+            </div>
+            <button type="submit">Filtrar</button>
+        </form>
+
+        <table class="relatorios-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Endereço</th>
+                <th>Data Agendamento</th>
+                <th>Status</th>
+                <th>Observação</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="ordem : ${ordens}">
+                <td th:text="${ordem.id}">ID</td>
+                <td th:text="${ordem.endereco.rua + ', ' + ordem.endereco.numero}">Endereço</td>
+                <td th:text="${ordem.data}">Data</td>
+                <td th:text="${ordem.status}">Status</td>
+                <td th:text="${ordem.observacao}">Observação</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

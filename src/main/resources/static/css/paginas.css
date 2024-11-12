@@ -1,0 +1,262 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.top-banner {
+    background-color: #008cba;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: color 0.3s, background-color 0.3s;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.sidebar a:hover {
+    background-color: #444;
+    border-radius: 5px;
+}
+
+.wrapper-container {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+
+.main-content {
+    text-align: center;
+}
+
+.main-content h1 {
+    color: #008cba;
+    margin-bottom: 20px;
+}
+
+.main-content h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+textarea,
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="text"],
+[type="password"],
+input[type="date"] {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+select#perfil {
+    width: 40%;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #008cba;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #005f87;
+}
+
+.my-form {
+    margin: 20px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.atendimento-table td {
+    padding: 10px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 200px;
+    margin: 10px;
+}
+
+#estado {
+    width: 500px;
+    height: 40px;
+}
+
+/*AJUSTES APENAS DA PAGINA RELATORIOS*/
+.relatorios-table th:nth-child(1), .relatorios-table td:nth-child(1) {
+    width: 5%;
+}
+
+.relatorios-table th:nth-child(2), .relatorios-table td:nth-child(2) {
+    width: 40%;
+}
+
+.relatorios-table th:nth-child(3), .relatorios-table td:nth-child(3) {
+    width: 15%;
+}
+
+.relatorios-table th:nth-child(4), .relatorios-table td:nth-child(4) {
+    width: 10%;
+}
+
+.relatorios-table th:nth-child(5), .relatorios-table td:nth-child(5) {
+    width: 30%;
+}
+
+.relatorios-table th {
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.relatorios-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.relatorios-table td {
+    white-space: normal;
+    padding: 10px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.relatorios-table tr:last-child td {
+    border-bottom: none;
+}
+
+.relatorios-table th:last-child,
+.relatorios-table td:last-child {
+    border-right: none;
+}
+
+/*PREVENTIVAS PENDENTES*/
+
+.preventivas-table th:nth-child(1), .preventivas-table td:nth-child(1) {
+    width: 5%;
+}
+
+.preventivas-table th:nth-child(2), .preventivas-table td:nth-child(2) {
+    width: 40%;
+}
+
+.preventivas-table th:nth-child(3), .preventivas-table td:nth-child(3) {
+    width: 15%;
+}
+
+.preventivas-table th:nth-child(4), .preventivas-table td:nth-child(4) {
+    width: 10%;
+}
+
+.preventivas-table th:nth-child(5), .preventivas-table td:nth-child(5) {
+    width: 30%;
+}
+
+.preventivas-table th {
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.preventivas-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.preventivas-table td {
+    white-space: normal;
+    padding: 10px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.preventivas-table tr:last-child td {
+    border-bottom: none;
+}
+
+.preventivas-table th:last-child,
+.preventivas-table td:last-child {
+    border-right: none;
+}
+
+/* CSS dispositivos móveis */
+@media screen and (max-width: 600px) {
+
+    .sidebar {
+        position: static;
+        width: auto;
+        height: auto;
+    }
+
+    .wrapper-container {
+        margin-left: 0;
+    }
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery img {
+        width: 100%;
+    }
+}

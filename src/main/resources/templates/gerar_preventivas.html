@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventivas Pendentes</title>
+    <link rel="stylesheet" th:href="@{/css/paginas.css}" />
+</head>
+<body>
+<div class="top-banner"></div>
+<div class="sidebar" th:replace="~{fragments/menu :: menuFragment}"></div>
+<div class="wrapper-container">
+    <div class="main-content">
+        <h1>Preventivas Pendentes</h1>
+
+        <table class="preventivas-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Endereço</th>
+                <th>Último Atendimento</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="endereco : ${enderecos}">
+                <td th:text="${endereco.id}">ID</td>
+                <td th:text="${endereco.rua + ', ' + endereco.numero}">Endereço</td>
+                <td th:text="${endereco.ultimoAtendimento}">Último Atendimento</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/paginas.css}" />
+    <script>
+        async function buscarEnderecos() {
+            const query = document.getElementById('enderecoBusca').value;
+            const response = await fetch(`/enderecos/buscar?q=${query}`);
+            const enderecos = await response.json();
+            console.log(enderecos); // Retorna os Endereços
+            const select = document.getElementById('endereco');
+            select.innerHTML = '';
+            enderecos.forEach(endereco => {
+                const option = document.createElement('option');
+                option.value = endereco.id;
+                option.textContent = `${endereco.rua}, ${endereco.numero} - ${endereco.bairro}`;
+                select.appendChild(option);
+            });
+        }
+    </script>
+</head>
+<body>
+<div class="top-banner"></div>
+<div class="sidebar" th:replace="~{fragments/menu :: menuFragment}"></div>
+<div class="wrapper-container">
+    <div class="main-content">
+        <h1>Criar Nova Ordem de Serviço</h1>
+        <form action="/ordens_servico/criar" method="POST">
+            <div class="form-group">
+                <label for="enderecoBusca">Buscar Endereço:</label>
+                <input type="text" id="enderecoBusca" onkeyup="buscarEnderecos()" placeholder="Digite o nome da rua">
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <select id="endereco" name="endereco" required>
+                    <!-- Js vai preencher aqui -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="data">Data Atendimento:</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+            <div class="form-group">
+                <label for="observacao">Observação:</label>
+                <textarea id="observacao" name="observacao"></textarea>
+            </div>
+            <button type="submit">Criar Ordem de Serviço</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

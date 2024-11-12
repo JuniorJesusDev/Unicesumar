@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Novo Endereço</title>
+    <link rel="stylesheet" th:href="@{/css/paginas.css}" />
+</head>
+<body>
+<div class="top-banner"></div>
+<div class="sidebar" th:replace="~{fragments/menu :: menuFragment}"></div>
+<div class="wrapper-container">
+    <div class="main-content">
+        <h1>Cadastrar Novo Endereço</h1>
+        <form action="/novo_endereco" method="POST">
+            <label for="rua">Rua:</label>
+            <input type="text" id="rua" name="rua" required>
+
+            <label for="numero">Número:</label>
+            <input type="number" id="numero" name="numero" required>
+
+            <label for="bairro">Bairro:</label>
+            <input type="text" id="bairro" name="bairro" required>
+
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" required>
+
+            <label for="estado">Estado:</label>
+            <select id="estado" name="estado" required>
+                <option value="">Selecione um estado</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+            </select>
+
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep" required>
+
+            <label for="nomeSindico">Nome do Síndico:</label>
+            <input type="text" id="nomeSindico" name="nomeSindico" required>
+
+            <label for="telefoneSindico">Telefone do Síndico:</label>
+            <input type="text" id="telefoneSindico" name="telefoneSindico" required>
+
+            <input type="hidden" id="ultimoAtendimento" name="ultimoAtendimento" value="1970-01-01">
+
+            <br>
+            <br>
+            <button type="submit">Cadastrar Endereço</button>
+            <div th:text="${message}"></div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
